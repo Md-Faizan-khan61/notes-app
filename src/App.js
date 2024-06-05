@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import NoteList from './NoteList';
+import NoteForm from './NoteForm';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [item, setItem] = useState([])
+   const [currentNote , setCurrentNote] = useState({text:'',id:0}) 
+   function prof(note) {
+      return (
+         note.id =item.length + 1,
+         setItem([...item, note])        
+         //console.log(item)
+      )
+   }
+   function handleDel(i) {
+      const filteredNum = item.filter((item, index) => index != i)
+      return (
+         setItem(filteredNum),
+         console.log(i)
+      )
+   }
+   function editNote(note) {   // {text:'shit'}
+      return (
+         setCurrentNote(note),
+         console.log(note)
+         //console.log(currentNote)
+      )
+   }
+
+   function updateNote(updatedNote) {
+      return (
+         setItem( item.map((note)=>
+            note.id === updatedNote.id ? updatedNote : note
+          ))
+      )
+   }
+
+   return (
+      <div>
+        
+         <NoteForm prof={prof} currentNote={currentNote} updateNote={updateNote}/>
+         <NoteList item={item} handleDel={handleDel} editNote={editNote} />
+      </div>
+   )
 }
 
 export default App;
