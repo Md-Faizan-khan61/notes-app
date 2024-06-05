@@ -15,7 +15,7 @@ const NoteList = ({item, handleDel ,editNote}) => {
     >edit</button>
     </div>
     </div>
-    <hr />
+    {/* <hr /> */}
     </div>
             )
            }
