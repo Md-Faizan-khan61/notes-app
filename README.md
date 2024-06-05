@@ -23,7 +23,7 @@ Make sure you have Node.js and npm (Node Package Manager) installed on your mach
 1. Clone the repository
 
    ```sh
-   git clone https://github.com/Md-Faizan-khan61/notes-app
+   git clone https://github.com/Md-Faizan-khan61/notes-app.git
    ```
 
 2. Navigate into the project directory
